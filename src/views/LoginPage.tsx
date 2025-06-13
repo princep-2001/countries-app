@@ -56,20 +56,11 @@ export default function LoginPage() {
     },
   });
 
-  const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [showAlert, setShowAlert] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const validatePassword = (password: string) => {
-    const minLength = password.length >= 8;
-    const hasCapital = /[A-Z]/.test(password);
-    const hasNumber = /\d/.test(password);
-    const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(password);
-
-    return minLength && hasCapital && hasNumber && hasSymbol;
-  };
-
+  
   return (
     <Container fluid className="login-container">
       <Row className="login-row">
@@ -98,7 +89,7 @@ export default function LoginPage() {
                   value={formik?.values?.email}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
-                  isInvalid={!!formik.errors.email}
+                  isInvalid={formik.touched.email && !!formik.errors.email}
                   size="lg"
                 />
                 <Form.Control.Feedback type="invalid">
@@ -114,7 +105,7 @@ export default function LoginPage() {
                   value={formik.values.password}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
-                  isInvalid={!!formik.errors.password}
+                  isInvalid={formik.touched.password && !!formik.errors.password}
                   size="lg"
                 />
                 <Form.Control.Feedback type="invalid">
