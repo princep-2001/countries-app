@@ -76,11 +76,6 @@ export default function CountriesPage() {
     setCurrentSlide(index);
   };
 
-  const slides = [
-    { icon: "🌍", text: "Explore Countries" },
-    { icon: "🗺️", text: "Discover Regions" },
-    { icon: "🌎", text: "Learn About Cultures" },
-  ];
 
   return (
     <Container fluid className="app-container">
@@ -93,9 +88,8 @@ export default function CountriesPage() {
               {regions.map((region) => (
                 <Nav.Link
                   key={region.key}
-                  className={`nav-link-custom ${
-                    selectedRegion === region.key ? "active" : ""
-                  }`}
+                  className={`nav-link-custom ${selectedRegion === region.key ? "active" : ""
+                    }`}
                   onClick={() => handleRegionChange(region.key)}
                 >
                   {region.label}
@@ -150,10 +144,9 @@ export default function CountriesPage() {
                 <Card.Body className="intro-card-body">
                   <div className="intro-slide">
                     <div className="text-center">
-                      <div className="intro-icon">
-                        {slides[currentSlide].icon}
-                      </div>
-                      <p className="intro-text">{slides[currentSlide].text}</p>
+                      <img className="intro-icon" src={displayedCountries[currentSlide].flag}>
+                      </img>
+                      <p className="intro-text">{displayedCountries[currentSlide].name}</p>
                     </div>
                   </div>
 

@@ -9,7 +9,7 @@ A simple React app built with Vite that displays and manages information about c
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/PrinceP2001/countries-app.git
+   git clone https://github.com/princep-2001/countries-app
    cd countries-app
    ```
 
@@ -53,4 +53,4 @@ A simple React app built with Vite that displays and manages information about c
 
 ## Author
 
-[Prince P](https://github.com/PrinceP2001)
+[Prince P](https://github.com/princep-2001)
