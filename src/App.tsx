@@ -25,7 +25,7 @@ function App() {
         <Route
           path="/countries"
           element={
-            isAuthenticated ? <CountriesPage /> : <LoginPage />
+            <CountriesPage />
           }
         />
       </Routes>
