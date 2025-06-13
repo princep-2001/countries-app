@@ -144,9 +144,9 @@ export default function CountriesPage() {
                 <Card.Body className="intro-card-body">
                   <div className="intro-slide">
                     <div className="text-center">
-                      <img className="intro-icon" src={displayedCountries[currentSlide].flag}>
+                      <img className="intro-icon" src={displayedCountries[currentSlide]?.flag}>
                       </img>
-                      <p className="intro-text">{displayedCountries[currentSlide].name}</p>
+                      <p className="intro-text">{displayedCountries[currentSlide]?.name}</p>
                     </div>
                   </div>
 
