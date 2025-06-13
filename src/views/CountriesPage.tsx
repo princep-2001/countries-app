@@ -12,6 +12,7 @@ import {
 import { FaArrowLeft, FaArrowRight, FaBars } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useSwipeable, SwipeableHandlers } from 'react-swipeable';
 import Footer from '../components/Footer/Footer';
 import { logout } from '../store/authSlice';
 import {
@@ -76,6 +77,14 @@ export default function CountriesPage() {
     setCurrentSlide(index);
   };
 
+  const handlers: SwipeableHandlers = useSwipeable({
+    onSwipedLeft: () => nextSlide(),
+    onSwipedRight: () => prevSlide(),
+    preventScrollOnSwipe: true,
+    trackMouse: true, // Allows swipe with mouse as well
+  });
+
+
   return (
     <Container fluid className="app-container">
       <Navbar bg="white" expand="lg" className="custom-navbar">
@@ -87,9 +96,8 @@ export default function CountriesPage() {
               {regions.map(region => (
                 <Nav.Link
                   key={region.key}
-                  className={`nav-link-custom ${
-                    selectedRegion === region.key ? 'active' : ''
-                  }`}
+                  className={`nav-link-custom ${selectedRegion === region.key ? 'active' : ''
+                    }`}
                   onClick={() => handleRegionChange(region.key)}
                 >
                   {region.label}
@@ -142,12 +150,13 @@ export default function CountriesPage() {
             <Col lg={8} md={10}>
               <Card className="intro-card">
                 <Card.Body className="intro-card-body">
-                  <div className="intro-slide">
+                  <div {...handlers} className="intro-slide">
                     <div className="text-center">
                       <img
                         className="intro-icon"
                         src={displayedCountries[currentSlide]?.flag}
-                      ></img>
+                        alt="flag"
+                      />
                       <p className="intro-text">
                         {displayedCountries[currentSlide]?.name}
                       </p>
@@ -161,9 +170,7 @@ export default function CountriesPage() {
                         {[0, 1, 2].map(index => (
                           <Button
                             key={index}
-                            variant={
-                              currentSlide === index ? 'dark' : 'secondary'
-                            }
+                            variant={currentSlide === index ? 'dark' : 'secondary'}
                             size="sm"
                             className="dot"
                             onClick={() => goToSlide(index)}
