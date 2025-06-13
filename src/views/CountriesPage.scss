@@ -1,196 +1,229 @@
 .app-container {
-    min-height: 100vh;
-    background-color: #fff;
+  min-height: 100vh;
+  background-color: #fff;
 }
 
 .custom-navbar {
-    border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
 }
 
 .brand-title {
-    font-weight: bold;
-    font-size: 1.5rem;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 .nav-links-desktop {
-    display: none;
+  display: none;
 
-    @media (min-width: 992px) {
-        display: flex;
-    }
+  @media (min-width: 992px) {
+    display: flex;
+  }
 }
 
 .nav-link-custom {
-    padding: 0 1rem;
-    cursor: pointer;
-    color: #6c757d;
-    border-bottom: none;
+  padding: 0 1rem;
+  cursor: pointer;
+  color: #6c757d;
+  border-bottom: none;
 
-    &.active {
-        font-weight: bold;
-        color: #000;
-        border-bottom: 2px solid #000;
-    }
+  &.active {
+    font-weight: bold;
+    color: #000;
+    border-bottom: 2px solid #000;
+  }
 }
 
 .mobile-menu-btn {
-    display: block;
+  display: block;
 
-    @media (min-width: 992px) {
-        display: none;
-    }
+  @media (min-width: 992px) {
+    display: none;
+  }
 }
 
 .mobile-menu {
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #dee2e6;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
 }
 
 .mobile-button-group {
-    padding: 0.5rem 0;
+  padding: 0.5rem 0;
 }
 
 .mobile-region-btn {
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .content-wrapper {
-    text-align: center;
-    padding: 2rem 0;
+  text-align: center;
+  padding: 2rem 0;
 }
 
 .welcome-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
 }
 
 .divider {
-    flex-grow: 1;
-    height: 2px;
-    background-color: #000;
+  flex-grow: 1;
+  height: 2px;
+  background-color: #3d3d3d;
 }
 
 .welcome-title {
-    margin: 0 1rem;
-    font-size: 2.5rem;
-    font-weight: bold;
-    letter-spacing: 0.3em;
+  margin: 0 1rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 0.3em;
 }
 
 .intro-card-row {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
 }
 
 .intro-card {
-    border: none;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-    position: relative;
+  border: none;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  position: relative;
 }
 
 .intro-card-body {
-    padding: 2rem;
-    padding-bottom: 4rem;
-    background-color: #FEF7FF;
-    min-height: 200px;
+  padding: 2rem;
+  padding-bottom: 4rem;
+  background-color: #fef7ff;
+  min-height: 200px;
 }
 
 .intro-slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .intro-icon {
-    height: 4rem;
-    width: 6rem;
-    margin-bottom: 0.5rem;
+  height: 4rem;
+  width: 6rem;
+  margin-bottom: 0.5rem;
 }
 
 .intro-text {
-    color: #6c757d;
-    font-size: 1rem;
+  color: #6c757d;
+  font-size: 1rem;
 }
 
 .carousel-controls {
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .carousel-nav {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .carousel-dots {
-    display: flex;
-    gap: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .dot {
-    border-radius: 50%;
-    width: 8px;
-    height: 8px;
-    padding: 0;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  padding: 0;
 }
 
 .countries-row {
-    row-gap: 1.5rem;
-    margin-bottom: 3rem;
+  row-gap: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .country-card {
-    height: 100%;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  height: 100%;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 
 .country-card-body {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .country-info {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .flag-wrapper {
-    margin-right: 0.75rem;
-    flex-shrink: 0;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
 }
 
 .flag-img {
-    width: 48px;
-    height: 36px;
-    object-fit: cover;
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
+  width: 48px;
+  height: 36px;
+  object-fit: cover;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
 }
 
 .country-details {
-    text-align: left;
+  text-align: left;
 }
 
 .country-name {
-    font-size: 1rem;
-    margin-bottom: 0.25rem;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
 }
 
 .country-region {
-    color: #6c757d;
-    font-size: 0.875rem;
-    margin: 0;
+  color: #6c757d;
+  font-size: 0.875rem;
+  margin: 0;
 }
 
 .load-more-wrapper {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .logout-wrapper {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
+}
+
+.welcome-wrapper {
+  display: grid;
+  place-items: center;
+  margin: 40px 0;
+  row-gap: 20px;
+}
+
+.line {
+  width: 80%;
+  height: 1px;
+  border: none;
+  background-color: #444;
+}
+
+@media (min-width: 768px) {
+  .top {
+    justify-self: start;
+    width: 40%;
+  }
+
+  .bottom {
+    justify-self: end;
+    width: 40%;
+  }
+
+  .welcome-text {
+    margin: 0;
+    font-weight: bold;
+    color: #444;
+    letter-spacing: 1px;
+  }
 }

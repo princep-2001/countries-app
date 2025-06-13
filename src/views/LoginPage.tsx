@@ -1,13 +1,14 @@
-"use client";
-import { useFormik } from "formik";
-import { useState } from "react";
-import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import * as Yup from "yup";
-import Footer from "../components/Footer/Footer";
-import { login } from "../store/authSlice";
-import "./LoginPage.scss";
+'use client';
+import { useFormik } from 'formik';
+import { useState } from 'react';
+import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import * as Yup from 'yup';
+import Footer from '../components/Footer/Footer';
+import { login } from '../store/authSlice';
+import './LoginPage.scss';
+import CommonInput from '../components/CommonInput/CommonInput';
 
 interface FormValues {
   email: string;
@@ -17,41 +18,41 @@ interface FormValues {
 
 export default function LoginPage() {
   const validationSchema: Yup.ObjectSchema<FormValues> = Yup.object({
-    email: Yup.string().required("Username or email is required"),
+    email: Yup.string().required('Username or email is required'),
     password: Yup.string()
-      .required("Password is required")
+      .required('Password is required')
       .min(
         8,
-        "Password must be at least 8 characters with 1 capital letter, 1 number, and 1 symbol"
+        'Password must be at least 8 characters with 1 capital letter, 1 number, and 1 symbol'
       )
       .matches(
         /[A-Z]/,
-        "Password must be at least 8 characters with 1 capital letter, 1 number, and 1 symbol"
+        'Password must be at least 8 characters with 1 capital letter, 1 number, and 1 symbol'
       )
       .matches(
         /\d/,
-        "Password must be at least 8 characters with 1 capital letter, 1 number, and 1 symbol"
+        'Password must be at least 8 characters with 1 capital letter, 1 number, and 1 symbol'
       )
       .matches(
         /[!@#$%^&*(),.?":{}|<>]/,
-        "Password must be at least 8 characters with 1 capital letter, 1 number, and 1 symbol"
+        'Password must be at least 8 characters with 1 capital letter, 1 number, and 1 symbol'
       ),
     keepSignedIn: Yup.boolean().default(false),
   });
 
   const formik = useFormik<FormValues>({
     initialValues: {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
       keepSignedIn: false,
     },
     validationSchema,
-    onSubmit: (values) => {
+    onSubmit: values => {
       dispatch(login({ email: values.email }));
       setShowAlert(true);
       setTimeout(() => {
         setShowAlert(false);
-        navigate("/countries");
+        navigate('/countries');
       }, 1500);
     },
   });
@@ -60,7 +61,6 @@ export default function LoginPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  
   return (
     <Container fluid className="login-container">
       <Row className="login-row">
@@ -68,7 +68,7 @@ export default function LoginPage() {
           <div className="login-form-wrapper">
             <h2 className="login-title">Sign In</h2>
             <p className="login-subtitle">
-              New user?{" "}
+              New user?{' '}
               <a href="#" className="signup-link">
                 Create an account
               </a>
@@ -81,37 +81,27 @@ export default function LoginPage() {
             )}
 
             <Form onSubmit={formik.handleSubmit}>
-              <Form.Group className="form-group">
-                <Form.Control
-                  type="text"
-                  name="email"
-                  placeholder="Username or email"
-                  value={formik?.values?.email}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  isInvalid={formik.touched.email && !!formik.errors.email}
-                  size="lg"
-                />
-                <Form.Control.Feedback type="invalid">
-                  {formik.errors.email}
-                </Form.Control.Feedback>
-              </Form.Group>
+              <CommonInput
+                type="text"
+                name="email"
+                placeholder="Username or email"
+                value={formik?.values?.email}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                isInvalid={formik.touched.email && !!formik.errors.email}
+                error={formik.errors.email}
+              />
 
-              <Form.Group className="form-group">
-                <Form.Control
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  value={formik.values.password}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  isInvalid={formik.touched.password && !!formik.errors.password}
-                  size="lg"
-                />
-                <Form.Control.Feedback type="invalid">
-                  {formik.errors.password}
-                </Form.Control.Feedback>
-              </Form.Group>
+              <CommonInput
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                isInvalid={formik.touched.password && !!formik.errors.password}
+                error={formik.errors.password}
+              />
 
               <Form.Group className="checkbox-group">
                 <Form.Check

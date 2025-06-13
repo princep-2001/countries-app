@@ -2,7 +2,7 @@ import {
   createAsyncThunk,
   createSlice,
   type PayloadAction,
-} from "@reduxjs/toolkit";
+} from '@reduxjs/toolkit';
 
 interface Country {
   name: string;
@@ -25,7 +25,7 @@ const initialState: CountriesState = {
   countries: [],
   filteredCountries: [],
   displayedCountries: [],
-  selectedRegion: "All",
+  selectedRegion: 'All',
   loading: false,
   error: null,
   currentPage: 1,
@@ -33,10 +33,10 @@ const initialState: CountriesState = {
 };
 
 export const fetchCountries = createAsyncThunk(
-  "countries/fetchCountries",
+  'countries/fetchCountries',
   async () => {
     const response = await fetch(
-      "https://restcountries.com/v3.1/all?fields=name,region,flags"
+      'https://restcountries.com/v3.1/all?fields=name,region,flags'
     );
     const data = await response.json();
     return data.map((country: any) => ({
@@ -48,18 +48,18 @@ export const fetchCountries = createAsyncThunk(
 );
 
 const countriesSlice = createSlice({
-  name: "countries",
+  name: 'countries',
   initialState,
   reducers: {
     setSelectedRegion: (state, action: PayloadAction<string>) => {
       state.selectedRegion = action.payload;
       state.currentPage = 1;
 
-      if (action.payload === "All") {
+      if (action.payload === 'All') {
         state.filteredCountries = state.countries;
       } else {
         state.filteredCountries = state.countries.filter(
-          (country) => country.region === action.payload
+          country => country.region === action.payload
         );
       }
 
@@ -68,7 +68,7 @@ const countriesSlice = createSlice({
         state.itemsPerPage
       );
     },
-    loadMoreCountries: (state) => {
+    loadMoreCountries: state => {
       state.currentPage += 1;
       const startIndex = state.currentPage * state.itemsPerPage;
       const endIndex = startIndex + state.itemsPerPage;
@@ -76,9 +76,9 @@ const countriesSlice = createSlice({
       state.displayedCountries = [...state.displayedCountries, ...newCountries];
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(fetchCountries.pending, (state) => {
+      .addCase(fetchCountries.pending, state => {
         state.loading = true;
         state.error = null;
       })
@@ -90,7 +90,7 @@ const countriesSlice = createSlice({
       })
       .addCase(fetchCountries.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message || "Failed to fetch countries";
+        state.error = action.error.message || 'Failed to fetch countries';
       });
   },
 });

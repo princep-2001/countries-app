@@ -1,5 +1,5 @@
-import { Button } from "react-bootstrap";
-import { FaFacebook, FaGoogle, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { Button } from 'react-bootstrap';
+import { FaFacebook, FaGoogle, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const Footer = ({ copyRight }) => {
   return (

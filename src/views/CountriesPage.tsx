@@ -1,5 +1,5 @@
-"use client";
-import { useEffect, useState } from "react";
+'use client';
+import { useEffect, useState } from 'react';
 import {
   Button,
   Card,
@@ -8,19 +8,19 @@ import {
   Nav,
   Navbar,
   Row,
-} from "react-bootstrap";
-import { FaArrowLeft, FaArrowRight, FaBars } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import Footer from "../components/Footer/Footer";
-import { logout } from "../store/authSlice";
+} from 'react-bootstrap';
+import { FaArrowLeft, FaArrowRight, FaBars } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer/Footer';
+import { logout } from '../store/authSlice';
 import {
   fetchCountries,
   loadMoreCountries,
   setSelectedRegion,
-} from "../store/countriesSlice";
-import type { RootState } from "../store/store";
-import "./CountriesPage.scss";
+} from '../store/countriesSlice';
+import type { RootState } from '../store/store';
+import './CountriesPage.scss';
 
 export default function CountriesPage() {
   const dispatch = useDispatch();
@@ -36,12 +36,12 @@ export default function CountriesPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const regions = [
-    { key: "All", label: "All" },
-    { key: "Africa", label: "Africa" },
-    { key: "Americas", label: "Americas" },
-    { key: "Asia", label: "Asia" },
-    { key: "Europe", label: "Europe" },
-    { key: "Oceania", label: "Oceania" },
+    { key: 'All', label: 'All' },
+    { key: 'Africa', label: 'Africa' },
+    { key: 'Americas', label: 'Americas' },
+    { key: 'Asia', label: 'Asia' },
+    { key: 'Europe', label: 'Europe' },
+    { key: 'Oceania', label: 'Oceania' },
   ];
 
   useEffect(() => {
@@ -61,21 +61,20 @@ export default function CountriesPage() {
 
   const handleLogout = () => {
     dispatch(logout());
-    navigate("/");
+    navigate('/');
   };
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % 3);
+    setCurrentSlide(prev => (prev + 1) % 3);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + 3) % 3);
+    setCurrentSlide(prev => (prev - 1 + 3) % 3);
   };
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
-
 
   return (
     <Container fluid className="app-container">
@@ -85,11 +84,12 @@ export default function CountriesPage() {
 
           <div className="nav-links-desktop">
             <Nav className="custom-nav">
-              {regions.map((region) => (
+              {regions.map(region => (
                 <Nav.Link
                   key={region.key}
-                  className={`nav-link-custom ${selectedRegion === region.key ? "active" : ""
-                    }`}
+                  className={`nav-link-custom ${
+                    selectedRegion === region.key ? 'active' : ''
+                  }`}
                   onClick={() => handleRegionChange(region.key)}
                 >
                   {region.label}
@@ -112,11 +112,11 @@ export default function CountriesPage() {
         <div className="mobile-menu">
           <Container>
             <div className="mobile-button-group">
-              {regions.map((region) => (
+              {regions.map(region => (
                 <Button
                   key={region.key}
                   variant={
-                    selectedRegion === region.key ? "dark" : "outline-secondary"
+                    selectedRegion === region.key ? 'dark' : 'outline-secondary'
                   }
                   size="sm"
                   className="mobile-region-btn"
@@ -132,10 +132,10 @@ export default function CountriesPage() {
 
       <Container>
         <div className="content-wrapper">
-          <div className="welcome-header">
-            <hr className="divider" />
-            <h1 className="welcome-title">WELCOME</h1>
-            <hr className="divider" />
+          <div className="welcome-wrapper">
+            <hr className="line top" />
+            <h2 className="welcome-text">WELCOME</h2>
+            <hr className="line bottom" />
           </div>
 
           <Row className="justify-content-center intro-card-row">
@@ -144,9 +144,13 @@ export default function CountriesPage() {
                 <Card.Body className="intro-card-body">
                   <div className="intro-slide">
                     <div className="text-center">
-                      <img className="intro-icon" src={displayedCountries[currentSlide]?.flag}>
-                      </img>
-                      <p className="intro-text">{displayedCountries[currentSlide]?.name}</p>
+                      <img
+                        className="intro-icon"
+                        src={displayedCountries[currentSlide]?.flag}
+                      ></img>
+                      <p className="intro-text">
+                        {displayedCountries[currentSlide]?.name}
+                      </p>
                     </div>
                   </div>
 
@@ -154,11 +158,11 @@ export default function CountriesPage() {
                     <div className="carousel-nav">
                       <FaArrowLeft size={12} onClick={prevSlide} />
                       <div className="carousel-dots">
-                        {[0, 1, 2].map((index) => (
+                        {[0, 1, 2].map(index => (
                           <Button
                             key={index}
                             variant={
-                              currentSlide === index ? "dark" : "secondary"
+                              currentSlide === index ? 'dark' : 'secondary'
                             }
                             size="sm"
                             className="dot"
@@ -182,12 +186,12 @@ export default function CountriesPage() {
                     <div className="country-info">
                       <div className="flag-wrapper">
                         <img
-                          src={country.flag || "/placeholder.svg"}
+                          src={country.flag || '/placeholder.svg'}
                           alt={`${country.name} flag`}
                           className="flag-img"
-                          onError={(e) => {
+                          onError={e => {
                             e.currentTarget.src =
-                              "/placeholder.svg?height=36&width=48";
+                              '/placeholder.svg?height=36&width=48';
                           }}
                         />
                       </div>
@@ -214,7 +218,7 @@ export default function CountriesPage() {
                 onClick={handleLoadMore}
                 disabled={loading}
               >
-                {loading ? "Loading..." : "Load more"}
+                {loading ? 'Loading...' : 'Load more'}
               </Button>
             </div>
           )}
