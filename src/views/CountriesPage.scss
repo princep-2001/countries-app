@@ -1,0 +1,195 @@
+.app-container {
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+.custom-navbar {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.brand-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.nav-links-desktop {
+    display: none;
+
+    @media (min-width: 992px) {
+        display: flex;
+    }
+}
+
+.nav-link-custom {
+    padding: 0 1rem;
+    cursor: pointer;
+    color: #6c757d;
+    border-bottom: none;
+
+    &.active {
+        font-weight: bold;
+        color: #000;
+        border-bottom: 2px solid #000;
+    }
+}
+
+.mobile-menu-btn {
+    display: block;
+
+    @media (min-width: 992px) {
+        display: none;
+    }
+}
+
+.mobile-menu {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.mobile-button-group {
+    padding: 0.5rem 0;
+}
+
+.mobile-region-btn {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.content-wrapper {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.welcome-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.divider {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #000;
+}
+
+.welcome-title {
+    margin: 0 1rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 0.3em;
+}
+
+.intro-card-row {
+    margin-bottom: 3rem;
+}
+
+.intro-card {
+    border: none;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    position: relative;
+}
+
+.intro-card-body {
+    padding: 2rem;
+    padding-bottom: 4rem;
+    background-color: #FEF7FF;
+    min-height: 200px;
+}
+
+.intro-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.intro-icon {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+.intro-text {
+    color: #6c757d;
+    font-size: 1rem;
+}
+
+.carousel-controls {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.carousel-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.carousel-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dot {
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    padding: 0;
+}
+
+.countries-row {
+    row-gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.country-card {
+    height: 100%;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.country-card-body {
+    padding: 1rem;
+}
+
+.country-info {
+    display: flex;
+    align-items: center;
+}
+
+.flag-wrapper {
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+}
+
+.flag-img {
+    width: 48px;
+    height: 36px;
+    object-fit: cover;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+}
+
+.country-details {
+    text-align: left;
+}
+
+.country-name {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.country-region {
+    color: #6c757d;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.load-more-wrapper {
+    margin-bottom: 2rem;
+}
+
+.logout-wrapper {
+    margin-bottom: 3rem;
+}
