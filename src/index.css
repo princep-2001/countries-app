@@ -1,8 +1,15 @@
+@font-face {
+  font-family: 'Noto-Sans';
+  src: url('/src/font/NotoSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Noto-sans' !important;
+  font-family: 'Noto-Sans';
 }
 
 .country-card {
@@ -96,6 +103,7 @@ hr {
 }
 
 @keyframes pulse {
+
   0%,
   100% {
     opacity: 1;
@@ -110,15 +118,15 @@ hr {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-.gap-2 > * + * {
+.gap-2>*+* {
   margin-left: 0.5rem;
 }
 
-.gap-3 > * + * {
+.gap-3>*+* {
   margin-left: 1rem;
 }
 
-.gap-4 > * + * {
+.gap-4>*+* {
   margin-left: 1.5rem;
 }
 
@@ -205,10 +213,12 @@ button:focus {
 
 /* Loading animation */
 @keyframes pulse {
+
   0%,
   100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.5;
   }
